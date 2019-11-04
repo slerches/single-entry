@@ -1,0 +1,54 @@
+body {
+    padding: 20px;
+}
+.card {
+     position: absolute;
+     left: 30%;
+     top: 45%;
+     width: 500px;
+     padding: 0 10px;
+     -moz-transform: translate(-50%, -50%)
+     -webkit-transform: translate(-50%, -50%)
+     -ms-transform: translate(-50%, -50%)
+     -o-transform: translate(-50%, -50%)
+     transform: translate(-50%, -50%);
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.bd {
+    border: 2px solid black;
+}
+
+table .bd {
+    border-color: darkcyan;
+}
+.bd-l {
+    border-left: 1px solid black;
+}
+
+.bd-r {
+    border-right: 1px solid black;
+}
+
+.bd-t {
+    border-top: 1px solid black;
+    margin: 0;
+}
+
+.bd-b {
+    border-bottom: 1px solid black;
+}
+
+table input {
+    height: 14px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+table td {
+    padding: 2px 5px;
+}
