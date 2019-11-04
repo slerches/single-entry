@@ -8,18 +8,20 @@ let currentValue = '';
 const Inputs = (props) => {
     
     const handleChange = e => {
-        if( e.target.name === 'description' || e.target.name === 'date') {
-            props.changeValues({ [e.target.name]: e.target.value });
-            return;
-        }
-        if (currentValue.length > 0 && currentValue !== e.target.name ) {
-            toast.warn('Action not possible');
-            return;
-        }
-        if(e.target.value <=0 ) {
-            currentValue = '';
-        } else {
-            currentValue = e.target.name
+        // if( e.target.name === 'description' || e.target.name === 'date') {
+        //     props.changeValues({ [e.target.name]: e.target.value });
+        //     return;
+        // }
+        if (!(e.target.name === 'description') && !(e.target.name === 'date')) {
+            if (currentValue.length > 0 && currentValue !== e.target.name ) {
+                toast.warn('Action not possible');
+                return;
+            }
+            if(e.target.value <=0 ) {
+                currentValue = '';
+            } else {
+                currentValue = e.target.name
+            }
         }
         props.changeValues({ [e.target.name]: e.target.value });
     }
@@ -42,7 +44,7 @@ const Inputs = (props) => {
             <td className='bd'><input onChange={handleChange} type='number' value={props.bank_interest} name='bank_interest' placeholder='Bank' /></td>
             <td className='bd'>&nbsp;</td>
             <td className='bd'><input onChange={handleChange} type='number' value={props.stationary} name='stationary' placeholder='Stationary' /></td>
-            <td className='bd'><input onChange={handleChange} type='number' value={props.office_equipement} name='office_equipment' placeholder='Equipments' /></td>
+            <td className='bd'><input onChange={handleChange} type='number' value={props.office_equipment} name='office_equipment' placeholder='Equipments' /></td>
             <td className='bd'><input onChange={handleChange} type='number' value={props.internet} name='internet' placeholder='Internet' /></td>
             <td className='bd'><input onChange={handleChange} type='number' value={props.drawings} name='drawings' placeholder='Drawings' /></td>
             <td className='bd'><input onChange={handleChange} type='number' value={props.bank_fees} name='bank_fees' placeholder='Bank' /></td>

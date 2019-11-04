@@ -12,7 +12,7 @@ let initialState = {
     bank_interest: 0,
     total_in: 0,
     stationary: 0,
-    office_equipement: 0,
+    office_equipment: 0,
     internet: 0,
     drawings: 0,
     bank_fees: 0,
@@ -29,7 +29,7 @@ let initialState = {
       bank_interest:'',
       total_in:'',
       stationary:'',
-      office_equipement:'',
+      office_equipment:'',
       internet:'',
       drawings:'',
       bank_fees:'',
@@ -51,7 +51,7 @@ const genReducer = (state=initialState,action) =>{
         bank_interest: '',
         total_in: '',
         stationary: '',
-        office_equipement: '',
+        office_equipment: '',
         internet: '',
         drawings: '',
         bank_fees: '',
@@ -61,7 +61,7 @@ const genReducer = (state=initialState,action) =>{
         if (state.idata.sales > 0 || state.idata.bank_interest > 0) {
           tmpData.bank_balance += state.idata.sales + state.idata.bank_interest;
         } else {
-          tmpData.bank_balance -= state.idata.stationary - state.idata.office_equipement - state.idata.internet - state.idata.drawings -state.idata.bank_fees;
+          tmpData.bank_balance -= state.idata.stationary - state.idata.office_equipment - state.idata.internet - state.idata.drawings -state.idata.bank_fees;
         }
       return { ...state, cashbook: [...state.cashbook, tmpData],idata}
     default:
