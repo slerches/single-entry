@@ -36,7 +36,7 @@ const Main = (props) => {
                                 return <TableBody key={index} {...cashbook} />
                             })
                         }
-                        {props.cashbook.length <= 12 && (<Inputs />)}
+                        {props.cashbook.length <= 12 && <Inputs />}
                         <TotalDisplay {...props.totals} />
                     </TableFrame>
                 </div>
