@@ -23,14 +23,14 @@ body {
 }
 
 table .bd {
-    border-color: darkcyan;
+    border-color: rgb(174, 177, 177);
 }
 .bd-l {
-    border-left: 1px solid black;
+    border-left: 3px solid black;
 }
 
 .bd-r {
-    border-right: 1px solid black;
+    border-right: 3px solid black;
 }
 
 .bd-t {
@@ -43,7 +43,8 @@ table .bd {
 }
 
 table input {
-    height: 14px !important;
+    /* height: 14px !important; */
+    font-size: 12px !important;
     margin: 0 !important;
     padding: 0 !important;
     border: none !important;

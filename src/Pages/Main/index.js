@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { TableFrame, TableBody, TotalDisplay } from '../../Components/Table';
 import Inputs from '../../Components/Inputs';
 
@@ -10,13 +10,13 @@ const Main = (props) => {
 
     React.useEffect(() => {
         fetch('/tempData/companyData.json')
-        .then(response=>response.json())
-        .then(data=>{
-            setCompanyData(data);
-        })
-        .catch(e=>{
-            console.log(e);
-        });
+            .then(response => response.json())
+            .then(data => {
+                setCompanyData(data);
+            })
+            .catch(e => {
+                console.log(e);
+            });
     }, [])
 
     return (
@@ -32,11 +32,11 @@ const Main = (props) => {
                 <div className="row">
                     <TableFrame>
                         {
-                            props.cashbook.map((cashbook,index)=>{
+                            props.cashbook.map((cashbook, index) => {
                                 return <TableBody key={index} {...cashbook} />
                             })
                         }
-                        <Inputs />
+                        {props.cashbook.length <= 12 && (<Inputs />)}
                         <TotalDisplay {...props.totals} />
                     </TableFrame>
                 </div>
@@ -47,9 +47,9 @@ const Main = (props) => {
 
 const mapToProps = state => {
     return {
-        cashbook:state.cashbook,
-        totals:state.totals
+        cashbook: state.cashbook,
+        totals: state.totals
     }
 }
 
-export default connect(mapToProps,null) (Main);
+export default connect(mapToProps, null)(Main);
