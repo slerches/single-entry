@@ -1,4 +1,4 @@
-## A simple accounting single entry form
+## A simple accounting single entry form in React
 
 For business transactions that are low in volume and uncomplicated.
 
