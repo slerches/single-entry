@@ -1,11 +1,13 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch,Redirect } from 'react-router-dom';
 import Login from './Pages/Login';
 import Main from './Pages/Main';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
 let initialState = {
+  uname:'',
+  userSet:false,
   currentBalance: 0,
   totals: {
     sales: 0,
@@ -39,6 +41,15 @@ let initialState = {
 
 const genReducer = (state = initialState, action) => {
   switch (action.type) {
+    case 'SET_LOGIN_VARS':
+      return { 
+        ...state, 
+        ...action.payload, 
+        cashbook:[
+          { 'total_in': Number(action.payload.currentBalance), 'description': 'Balance B/F', 'bank_balance': Number(action.payload.currentBalance)}
+        ],
+        totals: {...state.totals, 'total_in': Number(action.payload.currentBalance), 'bank_balance': Number(action.payload.currentBalance) }
+      }
     case 'CHANGE_VALUES':
       return { ...state, idata: { ...state.idata, ...action.payload } }
     case 'ADD_TO_BOOKS':
@@ -95,9 +106,9 @@ function App() {
       <div><img src="logo.png" alt="Company logo" width="15%" /></div>
       <BrowserRouter>
         <Switch>
-          <Route path='/login' component={Login} />
           <Provider store={store}>
-            <Route path='/' component={Main} />
+            <Route path='/login' component={Login} />
+            <Route path='/' exact component={Main} />
           </Provider>
         </Switch>
       </BrowserRouter>

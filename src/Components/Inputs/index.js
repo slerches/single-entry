@@ -6,14 +6,14 @@ import 'react-toastify/dist/ReactToastify.css';
 let currentValue = '';
 
 const Inputs = (props) => {
-
+    
     const handleChange = e => {
         if (!(e.target.name === 'description') && !(e.target.name === 'date')) {
-            if (currentValue.length > 0 && currentValue !== e.target.name) {
+            if (currentValue.length > 0 && currentValue !== e.target.name ) {
                 toast.warn('Action not possible');
                 return;
             }
-            if (e.target.value <= 0) {
+            if(e.target.value <=0 ) {
                 currentValue = '';
             } else {
                 currentValue = e.target.name
@@ -23,7 +23,7 @@ const Inputs = (props) => {
     }
 
     const addToBook = () => {
-        if (currentValue.length <= 0 || props.description.length <= 0) {
+        if (currentValue.length <= 0 || props.description.length <= 0 || props.date.length <= 0) {
             toast.warn("At least. You should provide 'Date', 'Description' and corresponding amount");
             return;
         }
@@ -32,10 +32,10 @@ const Inputs = (props) => {
     }
 
     return (
-        <tr>
-            <td className='bd'><input onChange={handleChange} style={{ width: '70px' }} type='date' data-date-format="DD MM" placeholder='Enter Date' name='date' value={props.date} /></td>
+        <tr style={{ fontSize: '10px', height: '10px' }}>
+            <td className='bd'><input onChange={handleChange} style={{ width: '70px' }} type='date' placeholder='Enter Date' data-date-format="DD-MM" name='date' value={props.date} /></td>
             <td className='bd'><input onChange={handleChange} type="text" value={props.description} placeholder="Provide description" name='description' /></td>
-            <td className='bd'>{props.tr_ref + 1}</td>
+            <td className='bd'>{props.tr_ref+1}</td>
             <td className='bd'><input onChange={handleChange} type='number' value={props.sales} name='sales' placeholder='Sales' /></td>
             <td className='bd'><input onChange={handleChange} type='number' value={props.bank_interest} name='bank_interest' placeholder='Bank' /></td>
             <td className='bd'>&nbsp;</td>

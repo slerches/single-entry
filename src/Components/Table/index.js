@@ -1,4 +1,6 @@
 import React from 'react';
+import accounting from 'accounting';
+
 
 const TableFrame = (props) => {
     return (
@@ -19,13 +21,13 @@ const TableFrame = (props) => {
                         <th className='bd' style={{ width: '45px' }}>Sales</th>
                         <th className='bd bd-r' style={{ width: '45px' }}>Bank Interest</th>
                         <th className='bd bd-r' style={{ width: '45px' }}>Total In</th>
-                        <th className='bd' style={{ width: '60px' }}>Stationary</th>
-                        <th className='bd' style={{ width: '75px' }}>Office Equip</th>
-                        <th className='bd' style={{ width: '45px' }}>Internet</th>
-                        <th className='bd' style={{ width: '45px' }}>Drawings</th>
-                        <th className='bd bd-r' style={{ width: '65px' }}>Bank Fees</th>
-                        <th className='bd bd-r' style={{ width: '65px' }}>Total Out</th>
-                        <th className='bd bd-r' style={{ width: '85px' }}>Bank Balance</th>
+                        <th className='bd' style={{ width: '70px' }}>Stationary</th>
+                        <th className='bd' style={{ width: '80px' }}>Office Equip</th>
+                        <th className='bd' style={{ width: '55px' }}>Internet</th>
+                        <th className='bd' style={{ width: '50px' }}>Drawings</th>
+                        <th className='bd bd-r' style={{ width: '40px' }}>Bank Fees</th>
+                        <th className='bd bd-r' style={{ width: '60px' }}>Total Out</th>
+                        <th className='bd bd-r' style={{ width: '80px' }}>Bank Balance</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,16 +51,16 @@ const TableBody = (props) => {
             <td className='bd'>{props.date}</td>
             <td className='bd'>{props.description}</td>
             <td className='bd bd-r'>{props.tr_ref}</td>
-            <td className='bd'>{props.sales}</td>
-            <td className='bd bd-r'>{props.bank_interest}</td>
-            <td className='bd bd-r'>{props.total_in}</td>
-            <td className='bd'>{props.stationary}</td>
-            <td className='bd'>{props.office_equipment}</td>
-            <td className='bd'>{props.internet}</td>
-            <td className='bd'>{props.drawings}</td>
-            <td className='bd bd-r'>{props.bank_fees}</td>
-            <td className='bd bd-r'>{props.total_out}</td>
-            <td className='bd bd-r'>{props.bank_balance}</td>
+            <td className='bd'>{accounting.formatMoney(props.sales, '₵')}</td>
+            <td className='bd bd-r'>{accounting.formatMoney(props.bank_interest, '₵')}</td>
+            <td className='bd bd-r'>{accounting.formatMoney(props.total_in, '₵')}</td>
+            <td className='bd'>{accounting.formatMoney(props.stationary, '₵')}</td>
+            <td className='bd'>{accounting.formatMoney(props.office_equipment, '₵')}</td>
+            <td className='bd'>{accounting.formatMoney(props.internet, '₵')}</td>
+            <td className='bd'>{accounting.formatMoney(props.drawings, '₵')}</td>
+            <td className='bd bd-r'>{accounting.formatMoney(props.bank_fees, '₵')}</td>
+            <td className='bd bd-r'>{accounting.formatMoney(props.total_out, '₵')}</td>
+            <td className='bd bd-r'>{accounting.formatMoney(props.bank_balance, '₵')}</td>
             <td className='bd'>R</td>
         </tr>
     )
@@ -70,16 +72,16 @@ const TotalDisplay = (props) => {
         <tr style={{ fontSize: '13px', fontWeight: "bold" }}>
             <td className='bd right-align' colSpan='2'>Totals</td>
             <td className='bd'>&nbsp;</td>
-            <td className='bd'>{props.sales}</td>
-            <td className='bd'>{props.bank_interest}</td>
-            <td className='bd'>{props.total_in}</td>
-            <td className='bd'>{props.stationary}</td>
-            <td className='bd'>{props.office_equipment}</td>
-            <td className='bd'>{props.internet}</td>
-            <td className='bd'>{props.drawings}</td>
-            <td className='bd'>{props.bank_fees}</td>
-            <td className='bd'>{props.total_out}</td>
-            <td className='bd'>{props.bank_balance}</td>
+            <td className='bd'>{accounting.formatMoney(props.sales, '₵')}</td>
+            <td className='bd'>{accounting.formatMoney(props.bank_interest, '₵')}</td>
+            <td className='bd'>{accounting.formatMoney(props.total_in, '₵')}</td>
+            <td className='bd'>{accounting.formatMoney(props.stationary, '₵')}</td>
+            <td className='bd'>{accounting.formatMoney(props.office_equipment, '₵')}</td>
+            <td className='bd'>{accounting.formatMoney(props.internet, '₵')}</td>
+            <td className='bd'>{accounting.formatMoney(props.drawings, '₵')}</td>
+            <td className='bd'>{accounting.formatMoney(props.bank_fees, '₵')}</td>
+            <td className='bd'>{accounting.formatMoney(props.total_out, '₵')}</td>
+            <td className='bd'>{accounting.formatMoney(props.bank_balance,'₵')}</td>
             <td className='bd'>C/F</td>
         </tr>
     )

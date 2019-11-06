@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import {Redirect} from 'react-router-dom';
 import { TableFrame, TableBody, TotalDisplay } from '../../Components/Table';
 import Inputs from '../../Components/Inputs';
 
 const Main = (props) => {
     const [companyData, setCompanyData] = useState({});
-    const [username, setUsername] = useState('');
     const [status, setStatus] = useState('');
 
     React.useEffect(() => {
@@ -21,9 +21,10 @@ const Main = (props) => {
 
     return (
         <>
+        {!props.userSet && <Redirect to='/login' />}
             <div className="row">
                 <div className="row">
-                    <div className="col m12">Welcome: {username}</div>
+                    <div className="col m12">Welcome: {props.uname}</div>
                 </div>
                 <div className="row">
                     <div className="col m2">CASHBOOK</div>
@@ -48,7 +49,9 @@ const Main = (props) => {
 const mapToProps = state => {
     return {
         cashbook: state.cashbook,
-        totals: state.totals
+        totals: state.totals,
+        userSet:state.userSet,
+        uname:state.uname
     }
 }
 
