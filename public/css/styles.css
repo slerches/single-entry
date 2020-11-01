@@ -1,9 +1,5 @@
-body {
-    padding: 20px;
-}
 .card {
      position: absolute;
-     left: 30%;
      top: 45%;
      width: 500px;
      padding: 0 10px;
@@ -14,58 +10,12 @@ body {
      transform: translate(-50%, -50%);
 }
 
+[contenteditable=true]:empty:before {
+  content: attr(placeholder);
+  display: block;
+  color: #aaa;
+}
+
 .text-bold {
     font-weight: bold;
-}
-
-.bd {
-    border: 2px solid black;
-}
-
-table .bd {
-    border-color: rgb(174, 177, 177);
-}
-.bd-l {
-    border-left: 3px solid black;
-}
-
-.bd-r {
-    border-right: 3px solid black;
-}
-
-.bd-t {
-    border-top: 1px solid black;
-    margin: 0;
-}
-
-.bd-b {
-    border-bottom: 1px solid black;
-}
-
-table input {
-    /* height: 14px !important; */
-    font-size: 12px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    border: none !important;
-}
-
-table td {
-    padding: 2px 5px;
-}
-
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-input[type="date"]::-webkit-outer-spin-button,
-input[type="date"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-input[type="number"] {
-    -moz-appearance: textfield;
 }
